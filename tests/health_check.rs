@@ -2,7 +2,7 @@
 async fn health_check_works() {
     // Arrange
     spawn_app(); // We need to bring in `reqwest`
-    // to perform HTTP requests against our application.
+                 // to perform HTTP requests against our application.
     let client = reqwest::Client::new();
     // Act
     let response = client
@@ -15,8 +15,8 @@ async fn health_check_works() {
     assert_eq!(Some(0), response.content_length());
 }
 
-
 fn spawn_app() {
-    let server = zero2prod::run().expect("Failed to bind address"); // Launch the server as a background task
+    let server = zero2prod::run().expect("Failed to bind address");
+    // Launch the server as a background taskcar
     let _ = tokio::spawn(server);
 }
